@@ -400,6 +400,7 @@ Ok: transaction number 0.
 ```
 Выполним клонирование репозитория: git clone https://github.com/mbfx/otus-linux-adm.git
 ```
+```
 root@testvm:/home/selinux_dns# git clone https://github.com/mbfx/otus-linux-adm.git
 Клонирование в «otus-linux-adm»...
 remote: Enumerating objects: 558, done.
