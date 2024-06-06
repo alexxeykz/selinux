@@ -366,6 +366,7 @@ Job for nginx.service failed because the control process exited with error code.
 июн 04 23:47:48 selinux systemd[1]: Unit nginx.service entered failed state.
 июн 04 23:47:48 selinux systemd[1]: nginx.service failed.
 ```
+```
 Включаем назад:
 [root@selinux nginx]# semodule -v -e my-nginx
 Attempting to enable module 'my-nginx':
@@ -516,6 +517,7 @@ drw-rwx---. root named unconfined_u:object_r:named_zone_t:s0 dynamic
 > update add www.ddns.lab. 60 A 192.168.50.15
 > send
 > quit
+```
 ```
 [root@client ~]# dig www.ddns.lab
 
