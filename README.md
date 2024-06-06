@@ -426,6 +426,7 @@ client                    running (virtualbox)
 root@testvm:/home/selinux_dns/otus-linux-adm/selinux_dns_problems# vagrant ssh client
 ```
 Попробуем внести изменения в зону: nsupdate -k /etc/named.zonetransfer.key
+```
 [vagrant@client ~]$ nsupdate -k /etc/named.zonetransfer.key
 [vagrant@client ~]$ nsupdate -k /etc/named.zonetransfer.key
 > server 192.168.50.10
@@ -434,7 +435,7 @@ root@testvm:/home/selinux_dns/otus-linux-adm/selinux_dns_problems# vagrant ssh c
 > send
 update failed: SERVFAIL
 > quit
-
+```
 Cмотрим логи SELinux, чтобы понять в чём дело:
 
 ```
