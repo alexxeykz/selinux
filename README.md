@@ -493,7 +493,7 @@ drw-rwx---. root named unconfined_u:object_r:etc_t:s0   dynamic
 Тут мы также видим, что контекст безопасности неправильный. Проблема заключается в том, что конфигурационные файлы лежат в другом каталоге. 
 Посмотреть в каком каталоги должны лежать, файлы, чтобы на них распространялись правильные политики SELinux можно с помощью команды:
 ```
-```
+
 [root@ns01 ~]# sudo semanage fcontext -l | grep named
 /etc/rndc.*                                        regular file       system_u:object_r:named_conf_t:s0
 /var/named(/.*)?                                   all files          system_u:object_r:named_zone_t:s0
@@ -509,7 +509,6 @@ drw-rwx---. root named unconfined_u:object_r:named_zone_t:s0 dynamic
 -rw-rw----. root named system_u:object_r:named_zone_t:s0 named.dns.lab
 -rw-rw----. root named system_u:object_r:named_zone_t:s0 named.dns.lab.view1
 -rw-rw----. root named system_u:object_r:named_zone_t:s0 named.newdns.lab
-```
 ```
 ```
 Попробуем снова внести изменения с клиента:
