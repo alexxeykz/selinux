@@ -230,6 +230,7 @@ semanage port -a -t http_port_t -p tcp 4881
 июн 04 23:05:08 selinux nginx[14025]: nginx: configuration file /etc/nginx/nginx.conf test is successful
 июн 04 23:05:08 selinux systemd[1]: Started The nginx HTTP and reverse proxy server.
 ```
+```
 Возвращаем назад в нерабочее состояние
 [root@selinux nginx]# semanage port -d -t http_port_t -p tcp 4881
 [root@selinux nginx]# systemctl restart nginx
@@ -253,7 +254,7 @@ Job for nginx.service failed because the control process exited with error code.
 июн 04 23:11:02 selinux systemd[1]: Failed to start The nginx HTTP and reverse proxy server.
 июн 04 23:11:02 selinux systemd[1]: Unit nginx.service entered failed state.
 июн 04 23:11:02 selinux systemd[1]: nginx.service failed.
-
+```
 ```
 
 Второй способ:
