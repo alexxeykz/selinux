@@ -437,15 +437,17 @@ update failed: SERVFAIL
 
 Cмотрим логи SELinux, чтобы понять в чём дело:
 
-
+```
 [vagrant@client ~]$ sudo -i
 [root@client ~]#
 [root@client ~]# cat /var/log/audit/audit.log | audit2why
+```
 Ничего не показало, отсутствуют ошибки.
 
 Подключимся к серверу, не отключаясь от сессии клиента ns01(сервер):
+```
 [vagrant@ns01 ~]$ sudo -i
-
+```
 Посмотрим логи на сервере:
 
 found 2 alerts in /var/log/audit/audit.log
