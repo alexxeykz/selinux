@@ -450,7 +450,7 @@ Cмотрим логи SELinux, чтобы понять в чём дело:
 
 found 2 alerts in /var/log/audit/audit.log
 --------------------------------------------------------------------------------
-
+```
 Traceback (most recent call last):
   File "/bin/sealert", line 510, in on_analyzer_state_change
     self.output_results()
