@@ -511,6 +511,7 @@ drw-rwx---. root named unconfined_u:object_r:named_zone_t:s0 dynamic
 -rw-rw----. root named system_u:object_r:named_zone_t:s0 named.newdns.lab
 ```
 ```
+```
 Попробуем снова внести изменения с клиента:
 [root@client ~]# nsupdate -k /etc/named.zonetransfer.key
 > server 192.168.50.10
