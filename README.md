@@ -491,17 +491,18 @@ drw-rwx---. root named unconfined_u:object_r:etc_t:s0   dynamic
 -rw-rw----. root named system_u:object_r:etc_t:s0       named.dns.lab.view1
 -rw-rw----. root named system_u:object_r:etc_t:s0       named.newdns.lab
 ```
-```
+
 Тут мы также видим, что контекст безопасности неправильный. Проблема заключается в том, что конфигурационные файлы лежат в другом каталоге. 
 Посмотреть в каком каталоги должны лежать, файлы, чтобы на них распространялись правильные политики SELinux можно с помощью команды:
-```
 
+```
 [root@ns01 ~]# sudo semanage fcontext -l | grep named
 /etc/rndc.*                                        regular file       system_u:object_r:named_conf_t:s0
 /var/named(/.*)?                                   all files          system_u:object_r:named_zone_t:s0
 ```
-```
+
 Изменим тип контекста безопасности для каталога /etc/named:
+```
 [root@ns01 ~]# sudo chcon -R -t named_zone_t /etc/named
 [root@ns01 ~]# ls -laZ /etc/named
 drw-rwx---. root named system_u:object_r:named_zone_t:s0 .
@@ -512,8 +513,9 @@ drw-rwx---. root named unconfined_u:object_r:named_zone_t:s0 dynamic
 -rw-rw----. root named system_u:object_r:named_zone_t:s0 named.dns.lab.view1
 -rw-rw----. root named system_u:object_r:named_zone_t:s0 named.newdns.lab
 ```
-```
+
 Попробуем снова внести изменения с клиента:
+```
 [root@client ~]# nsupdate -k /etc/named.zonetransfer.key
 > server 192.168.50.10
 > zone ddns.lab
@@ -549,9 +551,10 @@ ns01.dns.lab.           3600    IN      A       192.168.50.10
 ;; WHEN: Thu Jun 06 17:35:31 UTC 2024
 ;; MSG SIZE  rcvd: 96
 ```
-```
+
 Видим, что изменения применились.
 Перезагружаем и пробуем снова
+```
 [root@client ~]# reboot
 [root@client ~]# dig @192.168.50.10 www.ddns.lab
 
@@ -580,7 +583,7 @@ ns01.dns.lab.           3600    IN      A       192.168.50.10
 ;; SERVER: 192.168.50.10#53(192.168.50.10)
 ;; WHEN: Thu Jun 06 17:40:07 UTC 2024
 ;; MSG SIZE  rcvd: 96
-
+```
 Все сохранилось. Все работает!!!
 
 
