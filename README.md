@@ -281,6 +281,7 @@ setsebool -P nis_enabled 1
 июн 04 23:16:41 selinux nginx[14081]: nginx: configuration file /etc/nginx/nginx.conf test is successful
 июн 04 23:16:41 selinux systemd[1]: Started The nginx HTTP and reverse proxy server.
 ```
+```
 Возвращаем назад:
 [root@selinux nginx]# setsebool -P nis_enabled 0
 [root@selinux nginx]# systemctl restart nginx
