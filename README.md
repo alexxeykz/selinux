@@ -436,7 +436,7 @@ update failed: SERVFAIL
 > quit
 
 Cмотрим логи SELinux, чтобы понять в чём дело:
-```
+
 
 [vagrant@client ~]$ sudo -i
 [root@client ~]#
